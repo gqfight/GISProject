@@ -1,17 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+class Demo extends React.Component{
+  //创建容器
+  myRef = React.createRef()
+  myRef2 = React.createRef()
 
+  render() {
+    return(
+        <div>
+          <input ref={this.myRef} type="text" placeholder="点击按钮提示数据"/>
+          <button onClick={this.showData}>点我提示左侧数据</button>
+          <input onBlur={this.showData2} type="text"/>
+        </div>
+    )
+  }
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <Demo/>,
+    document.getElementById("root")
+)
